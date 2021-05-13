@@ -44,10 +44,10 @@ workflows:
      - Pre-Build
      - I-Have-Code:
          requires:
-           - Hello-World
+           - Pre-Build
      - Run-With-Node:
          requires:
-           - Hello-World
+           - Pre-Build
      - Hold-For-Approval:
          type: approval
          requires:
