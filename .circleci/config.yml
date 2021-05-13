@@ -4,8 +4,17 @@ jobs:
     docker:
       - image: alpine:3.7
     steps:
+    # checkout command is a built in reserved word
+    # Checks out code to the configured path (defaults to working_directory)
+    # The command contextualizes your job. In this case, it is pulling down code so you can start a build
+      - checkout
       - run:
           name: The First Step
           command: |
             echo 'Hello World!'
             echo 'This is the delivery pipeline'
+      - run:
+          name: Code Has Arrived
+          command: |
+            ls -al
+            echo '^^^That should look familiar^^^'
