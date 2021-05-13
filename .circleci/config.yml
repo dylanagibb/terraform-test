@@ -1,14 +1,15 @@
 version: 2.1
 jobs:
-  Hello-World:
+  Pre-Build:
     docker:
       - image: alpine:3.7
     steps:
       - run:
           name: Hello World
           command: |
-            echo 'Hello World!'
-            echo 'This is the delivery pipeline'
+            echo 'Installing Terraform...'
+            curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+            echo 'Installation Complete'
   I-Have-Code:
     docker:
       - image: alpine:3.7
